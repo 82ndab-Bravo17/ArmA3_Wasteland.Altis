@@ -108,7 +108,7 @@ while {true} do
 
     // Icons in bottom right
     _str = format ["%1 <img size='0.7' image='client\icons\running_man.paa'/>", 100 - round((getFatigue player) * 100)];
-    _str = format["%1<br/>%2 <img size='0.7' image='client\icons\money.paa'/>", _str, player getVariable "cmoney"];
+    _str = format["%1<br/>%2 <img size='0.7' image='client\icons\money.paa'/>", _str, player getVariable ["cmoney", 0]];
     _str = format["%1<br/>%2 <img size='0.7' image='client\icons\water.paa'/>", _str, round thirstLevel];
     _str = format["%1<br/>%2 <img size='0.7' image='client\icons\food.paa'/>", _str, round hungerLevel];
     _str = format["%1<br/><t color='%2'>%3</t> <img size='0.7' image='client\icons\health.paa'/>", _str, _healthTextColor, _health];
