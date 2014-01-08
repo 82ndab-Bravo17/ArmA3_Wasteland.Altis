@@ -90,7 +90,7 @@ for "_i" from 0 to (_objectscount - 1) do
             {
                 _obj addItemCargoGlobal [(_items select 0) select _ii, (_items select 1) select _ii];
             };
-            _lockedDOY = (_datetimelocked select 1) + ((_datetimelocked select 2) * 100) + (((_deleteAmmoboxTime select 3)-2000) * 10000);
+            _lockedDOY = (_datetimelocked select 1) + ((_datetimelocked select 2) * 100) + (((_datetimelocked select 3)-2000) * 10000);
             _lockedMOD = (_datetimelocked select 5) + ((_datetimelocked select 4) * 60);
             if (({_class == _x} count weaponboxList > 0) or _class == "B_supplyCrate_F" ) then
             {
@@ -112,7 +112,7 @@ for "_i" from 0 to (_objectscount - 1) do
         }
         else
         {
-            _lockedDOY = (_datetimelocked select 1) + ((_datetimelocked select 2) * 100) + (((_deleteAmmoboxTime select 3)-2000) * 10000);
+            _lockedDOY = (_datetimelocked select 1) + ((_datetimelocked select 2) * 100) + (((_datetimelocked select 3)-2000) * 10000);
             if (_lockedDOY  < _deleteBaseDOY)  then {_relock = false;};
             if (_lockedDOY == _deleteBaseDOY) then
             {
@@ -125,11 +125,6 @@ for "_i" from 0 to (_objectscount - 1) do
         diag_log format["A3W - baseSaving locked %1 a %2 %3 at %4", _objSaveName, _relock, _class, _dateTimelocked];
         _obj setVariable ["objectLocked", _relock, true]; //force lock
         
-        if (count _datetimelocked == 7) then
-        {
-            _t = _datetimelocked;
-            _datetimelocked = ["0", _t select 1, _t select 2, _t select 3, _t select 4, _t select 5];
-        };
         
         if (_relock) then { _obj setVariable ["datetimelocked", _dateTimelocked, true];};
 	};

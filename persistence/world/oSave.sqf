@@ -32,6 +32,7 @@ if (A3W_boxSaving == 1) then
 else
 {
     _saveableObjects = _saveableObjects - ["Box_NATO_Ammo_F"];
+    _saveableObjects = _saveableObjects - ["B_supplyCrate_F"];
 };
 while {!savedobjectsloaddone} do
 {
@@ -79,42 +80,39 @@ while {true} do
                     _datetimelocked = _currentdatetime;
                     _object setVariable ["datetimelocked", _datetimelocked, true];
                     diag_log format["A3W - Base saving has found nil date for obj%1", _PersistentDB_ObjCount];
-                }
-                else
+                };
+
+                switch (true) do
                 {
-                    switch (true) do
+                    case (typename _datetimelocked == "STRING"): 
                     {
-                        case (typename _datetimelocked == "STRING"): 
+                        diag_log format["A3W - Base saving has found String date for obj%1 which is a %2", _PersistentDB_ObjCount, _classname];
+                        if ( _datetimelocked == "") then
                         {
-                            diag_log format["A3W - Base saving has found String date for obj%1 which is a %2", _PersistentDB_ObjCount, _classname];
-                            if ( _datetimelocked == "") then
-                            {
-                                _datetimelocked = _currentdatetime;
-                                diag_log format["A3W - Base saving has found blank string date for obj%1", _PersistentDB_ObjCount];
-                                _object setVariable ["datetimelocked", _datetimelocked, true];
-                            }
-                            else
-                            {
-                                _datetimelocked_array = compile _datetimelocked;
-                                _datetimelocked = _datetimelocked_array;
-                            }; 
-                        };
-                        
-                        case (typename _datetimelocked == "ARRAY"):
+                            _datetimelocked = _currentdatetime;
+                            diag_log format["A3W - Base saving has found blank string date for obj%1", _PersistentDB_ObjCount];
+                            _object setVariable ["datetimelocked", _datetimelocked, true];
+                        }
+                        else
                         {
-                            diag_log format["A3W - Base saving has found Array date for obj%1 which is a %2", _PersistentDB_ObjCount, _classname];
-                            if (count _datetimelocked != 6) then
-                            {
-                                _datetimelocked = _currentdatetime;
-                                diag_log format["A3W - Base saving has found invalid Array date for obj%1 which is a %2", _PersistentDB_ObjCount, _classname];
-                            };
-                        };
-                        default 
+                            _datetimelocked_array = compile _datetimelocked;
+                            _datetimelocked = _datetimelocked_array;
+                        }; 
+                    };
+                    
+                    case (typename _datetimelocked == "ARRAY"):
+                    {
+                        diag_log format["A3W - Base saving has found Array date of %3 for obj%1 which is a %2", _PersistentDB_ObjCount, _classname, _datetimelocked];
+                        if ((count _datetimelocked != 6 ) and (count _datetimelocked != 7 )) then
                         {
-                            diag_log format["A3W - Base saving has found Other type date for obj%1 which is a %2", _PersistentDB_ObjCount, _classname];
+                            _datetimelocked = _currentdatetime;
+                            diag_log format["A3W - Base saving has found invalid Array date for obj%1 which is a %2", _PersistentDB_ObjCount, _classname];
                         };
                     };
-
+                    default 
+                    {
+                        diag_log format["A3W - Base saving has found Other type date for obj%1 which is a %2", _PersistentDB_ObjCount, _classname];
+                    };
                 };
                 
 				_objSaveName = format["obj%1", _PersistentDB_ObjCount];
