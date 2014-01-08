@@ -82,9 +82,23 @@ if ((call config_player_saving_enabled) == 1) then {
 };
 
 // Territory system enabled?
-if (count (call config_territory_markers) > 0) then {
+if ((count (call config_territory_markers) > 0) and (A3W_territories == 1)) then 
+{
 	territoryActivityHandler = "territory\client\territoryActivityHandler.sqf" call mf_compile;
 	[] execVM "territory\client\createCaptureTriggers.sqf";
+}
+else
+{
+	{
+		private ['_found', '_markerName'];
+		// Search the map marker name for TERRITORY_ to see if its one of ours...
+		_found = ["TERRITORY_", _x, true] call BIS_fnc_inString;
+		if (_found) then 
+		{
+			_markerName = _x;
+			_markerName setMarkerAlphaLocal 0;
+		};
+	} forEach allMapMarkers;
 };
 
 // Find out if the player has been moved by the persistence system

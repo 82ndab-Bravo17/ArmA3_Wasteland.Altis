@@ -67,6 +67,7 @@ A3W_moneyMissionDelayTime = (7*60);  // Time in seconds between Money Missions, 
 A3W_mainMissionTimeout = (60*60);    // Time in seconds that a Main Mission will run for, unless completed
 A3W_mainMissionDelayTime = (10*60);// Time in seconds between Main Missions, once one is over
 A3W_missionRadiusTrigger = 99999;   // Player must be nearer to mission than this in order to complete the mission after killing all AI
+A3W_territories = 1;
 
 PDB_ServerID = "any";        // iniDB saves prefix (change this in case you run multiple servers from the same folder)
 
@@ -92,8 +93,7 @@ publicVariable "A3W_ammoboxSaveTime";
 publicVariable "A3W_boxSaving";
 publicVariable "A3W_baseSaving";
 publicVariable "A3W_restarts";
-publicVariable "A3W_foodObject";
-publicVariable "A3W_drinkObject";
+publicVariable "A3W_territories";
 
 // Do we need any persistence?
 if (["A3W_baseSaving", 0] call getPublicVar > 0 || {["config_player_saving_enabled", 0] call getPublicVar > 0}) then
@@ -183,10 +183,17 @@ if (["A3W_serverSpawning", 0] call getPublicVar > 0) then
 // Hooks for new players connecting, in case we need to manually update state
 onPlayerConnected "[_id, _name] execVM 'server\functions\onPlayerConnected.sqf'";
 
-if (count (["config_territory_markers", []] call getPublicVar) > 0) then
+if (A3W_territories == 1) then
 {
-	diag_log "[INFO] A3W territory capturing is ENABLED";
-	[] ExecVM "territory\server\monitorTerritories.sqf";
+	if (count (["config_territory_markers", []] call getPublicVar) > 0) then
+	{
+		diag_log "[INFO] A3W territory capturing is ENABLED";
+		[] ExecVM "territory\server\monitorTerritories.sqf";
+	};
+}
+else
+{
+	diag_log "[INFO] A3W territory capturing is DISABLED";
 };
 
 //Execute Server Missions.
