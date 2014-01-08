@@ -15,16 +15,20 @@ A3W_heliSpawning = 1;        // If serverSpawning = 1, also spawn helicopters in
 A3W_planeSpawning = 1;       // If serverSpawning = 1, also spawn planes at some airfields (0 = no, 1 = yes)
 A3W_baseBuilding = 1;        // If serverSpawning = 1, also spawn basebuilding parts in towns (0 = no, 1 = yes)
 A3W_vehicleloot = "medium";
-A3W_sideMissionTimeout = (5*60);    // Time in seconds that a Side Mission will run for, unless completed
+A3W_sideMissionTimeout = (45*60);    // Time in seconds that a Side Mission will run for, unless completed
 A3W_sideMissionDelayTime = (1*60);  // Time in seconds between Side Missions, once one is over
+A3W_mainMissionTimeout = (60*60);    // Time in seconds that a Main Mission will run for, unless completed
+A3W_mainMissionDelayTime = (1.5*60);// Time in seconds between Main Missions, once one is over
 A3W_moneyMissionTimeout = (8*60);    // Time in seconds that a Money Mission will run for, unless completed
 A3W_moneyMissionDelayTime = (1.2*60);  // Time in seconds between Money Missions, once one is over
-A3W_mainMissionTimeout = (10*60);    // Time in seconds that a Main Mission will run for, unless completed
-A3W_mainMissionDelayTime = (1.5*60);// Time in seconds between Main Missions, once one is over
-A3W_missionRadiusTrigger = 99999;   // Player must be nearer to mission than this in order to complete the mission after killing all AI
+A3W_missionRadiusTrigger = 50;   // Player must be nearer to mission than this in order to complete the mission after killing all AI
 A3W_baseSaving = 1;          // Save base objects between restarts (0 = no, 1 = yes) - requires iniDB mod 
-A3W_boxSaving = 1;
-PDB_ServerID = "any";        // iniDB saves prefix (change this in case you run multiple servers from the same folder)
+A3W_boxSaving = 1;           // Allow saving of weapon boxes with contents (0 = no, 1 = yes) REQUIRES subtracthours.dll
+A3W_baseSaveTime = 7;        // No of days to save base parts for after the last lock
+A3W_ammoboxSaveTime = 3;     // No of days to save PURCHASED Ammo boxes
+A3W_restarts = 2;            // No of times the server does a planned restart used to restrict CAPTURED Weapon boxes to saving for at least one planned restart
+PDB_ServerID = "82ndAltis";        // iniDB saves prefix (change this in case you run multiple servers from the same folder)
+A3W_territories = 0;         // Used to enable/disable the capture territories option. (0 = no, 1 = yes)
 
 A3W_showlocationmarker = true;     // If true, shows a red circle in which the player currently is
 A3W_showgunstorestatus = false;     // If true shows friendly/enemy state of gun stores
