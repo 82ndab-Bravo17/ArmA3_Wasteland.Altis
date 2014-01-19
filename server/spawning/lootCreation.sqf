@@ -140,8 +140,8 @@ randomweapon_milweaponlist =
 
 randomweapon_itemlist = 
 [
-	"Land_Basket_F", // Food
-	"Land_CanisterPlastic_F", // Water
+	"Land_BakedBeans_F", // Food
+	"Land_BottlePlastic_V2_F", // Water
 	"Land_Suitcase_F",
 	"Land_CanisterFuel_F", //fuelcan
 	"Land_Can_V3_F", //energydrink redgull gives you stamina!
@@ -224,10 +224,10 @@ randomweapon_itemlist =
 		if(_class == "Land_Can_V3_F")then {
 			_item setVariable["mf_item_id", "energydrink", true];
 		};
-		if(_class == "Land_Basket_F") then {
+		if(_class == "Land_BakedBeans_F") then {
 			_item setVariable["mf_item_id", "cannedfood", true];
 		};
-		if(_class == "Land_CanisterPlastic_F") then {
+		if(_class == "Land_BottlePlastic_V2_F") then {
 			_item setVariable["mf_item_id", "water", true];
 		};
 		if(_class == "Land_Suitcase_F") then {
@@ -353,12 +353,12 @@ randomweapon_itemlist =
 	{
 		_pos = getMarkerPos (_x select 0);
 		_tradius = (_x select 1);
-		townarea_list set [count townarea_list, [_pos, _lastSpawned]];
+		townarea_list set [count townarea_list, [_pos, _lastSpawned, _tradius]];
 	}forEach (call citylist);
 	{
 		_pos = getMarkerPos (_x select 0);
 		_tradius = 200;
-		townarea_list set [count townarea_list, [_pos, _lastSpawned]];
+		townarea_list set [count townarea_list, [_pos, _lastSpawned, _tradius]];
 	}forEach (call militarylist);
 	while {true} do {
 		{
@@ -368,6 +368,7 @@ randomweapon_itemlist =
 				{
 					_posTown = (_x select 0);
 					_lastSpawned = (_x select 1);
+					_tradius = (_x select 2);
 					_dospawnradius = (_tradius + _spawnradius);
 					if (((_posTown distance _posPlayer) < _dospawnradius) && ((_interval < (time - _lastSpawned)) || (_lastSpawned == 0))) then {
 						_posTown call spawnlootintown;

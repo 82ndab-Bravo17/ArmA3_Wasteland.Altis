@@ -23,19 +23,21 @@ _hasFailed = {
 	[_failed, _text];
 };
 
-_success = [5, ANIMATION, _hasFailed, []] call mf_util_playUntil;
+_success = [5, ANIMATION, _hasFailed, []] call a3w_actions_start;
 if (_success) then
 {
 	[] spawn
 	{
 		player enableFatigue false;
+		player setVariable ["energy_drink_active", true];
 		["You have unlimited stamina for 5 minutes", 5] call mf_notify_client;
 		
 		sleep (5*60);
 		
 		player enableFatigue true;
+		player setVariable ["energy_drink_active", false];
         ["The effects of the energy drink are wearing off", 5] call mf_notify_client;
     };
 };
 
-_success
+_success

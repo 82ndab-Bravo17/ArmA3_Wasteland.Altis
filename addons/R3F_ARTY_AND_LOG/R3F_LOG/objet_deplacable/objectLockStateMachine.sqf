@@ -29,7 +29,7 @@ switch (_lockState) do {
 		
 		for "_iteration" from 1 to _lockDuration do {
 		    
-            if (player distance _currObject > 5 || !alive player) exitWith { // If the player is too far or dies, revert state.
+            if (player distance _currObject > 14 || !alive player) exitWith { // If the player is too far or dies, revert state.
 		        2 cutText ["Object lock interrupted...", "PLAIN DOWN", 1];
                 R3F_LOG_mutex_local_verrou = false;
 			};
@@ -83,6 +83,7 @@ switch (_lockState) do {
 			if (_iteration >= _totalDuration) exitWith { // Sleep a little extra to show that lock has completed
 		        sleep 1;
                 _currObject setVariable ["objectLocked", false, true];
+                _currObject setVariable ["datetimelocked", nil, true];
                 2 cutText ["", "PLAIN DOWN", 1];
                 R3F_LOG_mutex_local_verrou = false;
 		    }; 

@@ -95,7 +95,7 @@ class Mission
 	randomSeed=14957468;
 	class Intel
 	{
-		briefingName="A3Wasteland Altis v0.9d";
+		briefingName="A3Wasteland Altis v0.9f";
 		overviewText="Wasteland survival sandbox by Team Wasteland - visit A3Wasteland.com for more details";
 		resistanceWest=0;
 		startWeather=0.10000001;
@@ -2389,7 +2389,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=128;
+		items=167;
 		class Item0
 		{
 			position[]={3612.1487,12.11851,13020.892};
@@ -3295,6 +3295,385 @@ class Mission
 			name="Town_20";
 			type="Empty";
 			colorName="ColorRed";
+		};
+		class Item128
+		{
+			position[]={11477.15,23.233107,11740.481};
+			name="TERRITORY_SW_AIRFIELD";
+			text="AAC Airfield";
+			markerType="RECTANGLE";
+			type="Empty";
+			colorName="ColorYellow";
+			fillName="DiagGrid";
+			a=340;
+			b=100;
+			angle=-55.682098;
+		};
+		class Item129
+		{
+			position[]={14387.867,18.944099,16220.769};
+			name="TERRITORY_MAIN_AIRBASE_SW";
+			markerType="RECTANGLE";
+			type="Empty";
+			colorName="ColorYellow";
+			fillName="DiagGrid";
+			a=300;
+			b=300;
+			angle=43.968033;
+		};
+		class Item130
+		{
+			position[]={14806.477,17.91,16653.357};
+			name="TERRITORY_MAIN_AIRBASE_CENTER";
+			markerType="RECTANGLE";
+			type="Empty";
+			colorName="ColorYellow";
+			fillName="DiagGrid";
+			a=300;
+			b=300;
+			angle=43.967999;
+		};
+		class Item131
+		{
+			position[]={15225.079,17.516605,17085.578};
+			name="TERRITORY_MAIN_AIRBASE_NE";
+			markerType="RECTANGLE";
+			type="Empty";
+			colorName="ColorYellow";
+			fillName="DiagGrid";
+			a=300;
+			b=300;
+			angle=43.967999;
+		};
+		class Item132
+		{
+			position[]={9085.6289,15.733569,21518.648};
+			name="TERRITORY_NW_AIRFIELD";
+			markerType="RECTANGLE";
+			type="Empty";
+			colorName="ColorYellow";
+			fillName="DiagGrid";
+			a=200;
+			b=100;
+			angle=-36.669201;
+		};
+		class Item133
+		{
+			position[]={26922.594,19.302885,24761.859};
+			name="TERRITORY_NE_AIRFIELD";
+			markerType="RECTANGLE";
+			type="Empty";
+			colorName="ColorYellow";
+			fillName="DiagGrid";
+			a=120;
+			b=280;
+			angle=40.578899;
+		};
+		class Item134
+		{
+			position[]={20993.303,24.525772,7254.6567};
+			name="TERRITORY_SE_AIRFIELD";
+			markerType="RECTANGLE";
+			type="Empty";
+			colorName="ColorYellow";
+			fillName="DiagGrid";
+			a=240;
+			b=200;
+			angle=318.40302;
+		};
+		class Item135
+		{
+			position[]={4228.3794,18.116827,15052.348};
+			name="TERRITORY_WEST_POWER_PLANT";
+			markerType="RECTANGLE";
+			type="Empty";
+			colorName="ColorYellow";
+			fillName="DiagGrid";
+			a=50;
+			b=80;
+			angle=-268.34515;
+		};
+		class Item136
+		{
+			position[]={25411.078,9.7536478,20339.311};
+			name="TERRITORY_EAST_POWER_PLANT_1";
+			markerType="RECTANGLE";
+			type="Empty";
+			colorName="ColorYellow";
+			fillName="DiagGrid";
+			a=50;
+			b=70;
+			angle=-210.868;
+		};
+		class Item137
+		{
+			position[]={23058.23,3.1900001,18680.213};
+			name="TERRITORY_SALTFLATS_AIRFIELD";
+			markerType="RECTANGLE";
+			type="Empty";
+			colorName="ColorYellow";
+			fillName="DiagGrid";
+			a=300;
+			b=120;
+			angle=-90.074898;
+		};
+		class Item138
+		{
+			position[]={4837.5459,337.90045,21931.078};
+			name="TERRITORY_THRONOS_CASTLE";
+			markerType="RECTANGLE";
+			type="Empty";
+			colorName="ColorYellow";
+			fillName="DiagGrid";
+			a=100;
+			b=100;
+			angle=181.465;
+		};
+		class Item139
+		{
+			position[]={3081.7656,47.866707,13189.091};
+			name="TERRITORY_KASTRO_CASTLE";
+			markerType="RECTANGLE";
+			type="Empty";
+			colorName="ColorYellow";
+			fillName="DiagGrid";
+			a=80;
+			b=80;
+			angle=-0.70509499;
+		};
+		class Item140
+		{
+			position[]={15502.717,12.702961,16301.681};
+			name="TERRITORY_CENTER_POWER_PLANT";
+			markerType="RECTANGLE";
+			type="Empty";
+			colorName="ColorYellow";
+			fillName="DiagGrid";
+			a=50;
+			b=80;
+			angle=-276.67899;
+		};
+		class Item141
+		{
+			position[]={21592.693,19.400345,21265.885};
+			name="TERRITORY_IRAKLIA_RUINS";
+			markerType="RECTANGLE";
+			type="Empty";
+			colorName="ColorYellow";
+			fillName="DiagGrid";
+			a=40;
+			b=30;
+			angle=89.166702;
+		};
+		class Item142
+		{
+			position[]={21489.9,12.001317,10836.646};
+			name="TERRITORY_ARTINARKI_RUINS";
+			markerType="RECTANGLE";
+			type="Empty";
+			colorName="ColorYellow";
+			fillName="DiagGrid";
+			a=70;
+			b=140;
+			angle=40.578899;
+		};
+		class Item143
+		{
+			position[]={26363.574,61.489994,22177.205};
+			name="TERRITORY_NE_TRANSMITTER";
+			markerType="RECTANGLE";
+			type="Empty";
+			colorName="ColorYellow";
+			fillName="DiagGrid";
+			a=120;
+			b=80;
+			angle=8.0148973;
+		};
+		class Item144
+		{
+			position[]={18708.938,209.01988,10222.169};
+			name="TERRITORY_SE_TRANSMITTER_1";
+			markerType="RECTANGLE";
+			type="Empty";
+			colorName="ColorYellow";
+			fillName="DiagGrid";
+			a=40;
+			b=40;
+			angle=88.898048;
+		};
+		class Item145
+		{
+			position[]={19348.99,195.47195,9679.5342};
+			name="TERRITORY_SE_TRANSMITTER_2";
+			markerType="RECTANGLE";
+			type="Empty";
+			colorName="ColorYellow";
+			fillName="DiagGrid";
+			a=60;
+			b=50;
+			angle=-92.447281;
+		};
+		class Item146
+		{
+			position[]={4556.8101,262.84003,15408.569};
+			name="TERRITORY_MAGOS_TRANSMITTER";
+			markerType="RECTANGLE";
+			type="Empty";
+			colorName="ColorYellow";
+			fillName="DiagGrid";
+			a=60;
+			b=50;
+			angle=-246.429;
+		};
+		class Item147
+		{
+			position[]={9328.2363,267.96201,19306.725};
+			name="TERRITORY_PYRSOS_TRANSMITTER";
+			markerType="RECTANGLE";
+			type="Empty";
+			colorName="ColorYellow";
+			fillName="DiagGrid";
+			a=80;
+			b=200;
+			angle=-100.668;
+		};
+		class Item148
+		{
+			position[]={16083.663,15.841451,17001.398};
+			name="TERRITORY_MILITARY_RESEARCH";
+			markerType="ELLIPSE";
+			type="Empty";
+			colorName="ColorYellow";
+			fillName="DiagGrid";
+			a=100;
+			b=100;
+			angle=-92.447304;
+		};
+		class Item149
+		{
+			position[]={18295.152,-6.7252245,8136.5732};
+			name="Treasure_0";
+			type="Empty";
+			colorName="ColorWhite";
+		};
+		class Item150
+		{
+			position[]={16985.289,-0.27175087,13616.465};
+			name="Treasure_1";
+			type="Empty";
+			colorName="ColorWhite";
+		};
+		class Item151
+		{
+			position[]={9866.0479,0.014741103,11111.971};
+			name="Treasure_2";
+			type="Empty";
+			colorName="ColorWhite";
+		};
+		class Item152
+		{
+			position[]={4992.7637,-0.020654676,9908.2881};
+			name="Treasure_3";
+			type="Empty";
+			colorName="ColorWhite";
+		};
+		class Item153
+		{
+			position[]={3505.4102,-0.023277842,11439.938};
+			name="Treasure_4";
+			type="Empty";
+			colorName="ColorWhite";
+		};
+		class Item154
+		{
+			position[]={3849.9155,0.00057628582,15028.444};
+			name="Treasure_5";
+			type="Empty";
+			colorName="ColorWhite";
+		};
+		class Item155
+		{
+			position[]={5281.2344,0.23328479,22658.328};
+			name="Treasure_6";
+			type="Empty";
+			colorName="ColorWhite";
+		};
+		class Item156
+		{
+			position[]={21207.197,0.20755874,20124.484};
+			name="Treasure_7";
+			type="Empty";
+			colorName="ColorWhite";
+		};
+		class Item157
+		{
+			position[]={24573.881,-0.0090859979,16154.248};
+			name="Treasure_8";
+			type="Empty";
+			colorName="ColorWhite";
+		};
+		class Item158
+		{
+			position[]={5480.8828,24.168821,15021.59};
+			name="MobM_0";
+			type="Empty";
+			colorName="ColorBlack";
+		};
+		class Item159
+		{
+			position[]={6077.1182,214.36562,20273.727};
+			name="MobM_1";
+			type="Empty";
+			colorName="ColorBlack";
+		};
+		class Item160
+		{
+			position[]={9963.5586,72.804558,21217.41};
+			name="MobM_2";
+			type="Empty";
+			colorName="ColorBlack";
+		};
+		class Item161
+		{
+			position[]={17998.617,18.05002,17625.465};
+			name="MobM_3";
+			type="Empty";
+			colorName="ColorBlack";
+		};
+		class Item162
+		{
+			position[]={21857.203,32.135509,21377.219};
+			name="MobM_4";
+			type="Empty";
+			colorName="ColorBlack";
+		};
+		class Item163
+		{
+			position[]={17250.881,24.751972,10105.477};
+			name="MobM_5";
+			type="Empty";
+			colorName="ColorBlack";
+		};
+		class Item164
+		{
+			position[]={18721.559,22.634792,6605.4863};
+			name="MobM_6";
+			type="Empty";
+			colorName="ColorBlack";
+		};
+		class Item165
+		{
+			position[]={8979.6455,62.476936,7555.2178};
+			name="MobM_7";
+			type="Empty";
+			colorName="ColorBlack";
+		};
+		class Item166
+		{
+			position[]={9037.5693,57.920536,13772.573};
+			name="MobM_8";
+			type="Empty";
+			colorName="ColorBlack";
 		};
 	};
 };

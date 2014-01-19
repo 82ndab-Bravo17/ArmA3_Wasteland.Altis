@@ -6,6 +6,9 @@
 
 if (isDedicated) exitWith {};
 
+waitUntil {!isNil "A3W_network_compileFuncs"};
+call A3W_network_compileFuncs;
+
 [] execVM "client\functions\bannedNames.sqf";
 
 showPlayerIcons = true;
@@ -44,7 +47,7 @@ player call compile preprocessFileLineNumbers "client\functions\clientCompile.sq
 player call playerSetup;
 
 // Player saving - Load from iniDB
-if ((call config_player_saving_enabled) == 1) then {
+if (A3W_playerSaving == 1) then {
 	positionLoaded = 0;
 	donationMoneyLoaded = 0; // used only if config_player_donations_enabled is set
 
@@ -52,7 +55,8 @@ if ((call config_player_saving_enabled) == 1) then {
 	waitUntil {!isNil "fn_SaveToServer"};
 	[] execVM "persistence\players\c_playerDBSetup.sqf";
 	waitUntil {!isNil "statFunctionsLoaded"};
-	[] execVM "persistence\players\c_loadAccount.sqf";
+	
+	_loadHandle = [] execVM "persistence\players\c_loadAccount.sqf";
 
 	if ((call config_player_donations_enabled) == 1) then {
 		// If the server has configured donation money, load that from the DB
@@ -73,15 +77,29 @@ if ((call config_player_saving_enabled) == 1) then {
 		player setVariable["cmoney",_baseMoney,true];
 	};
 
-	waitUntil {positionLoaded == 1};
+	waitUntil {scriptDone _loadHandle && {positionLoaded == 1}};
 } else {
 	diag_log format["Client has no player save functionality"];
 };
 
 // Territory system enabled?
-if (count (call config_territory_markers) > 0) then {
+if ((count (call config_territory_markers) > 0) and (A3W_territories == 1)) then 
+{
 	territoryActivityHandler = "territory\client\territoryActivityHandler.sqf" call mf_compile;
 	[] execVM "territory\client\createCaptureTriggers.sqf";
+}
+else
+{
+	{
+		private ['_found', '_markerName'];
+		// Search the map marker name for TERRITORY_ to see if its one of ours...
+		_found = ["TERRITORY_", _x, true] call BIS_fnc_inString;
+		if (_found) then 
+		{
+			_markerName = _x;
+			_markerName setMarkerAlphaLocal 0;
+		};
+	} forEach allMapMarkers;
 };
 
 // Find out if the player has been moved by the persistence system
@@ -97,7 +115,7 @@ player addEventHandler ["Killed", { _this spawn onKilled }];
 
 //Setup Key Handler
 waituntil {!(IsNull (findDisplay 46))};
-(findDisplay 46) displaySetEventHandler ["KeyDown", "_this call onKeyPress"];
+(findDisplay 46) displayAddEventHandler ["KeyDown", "_this call onKeyPress"];
 
 "currentDate" addPublicVariableEventHandler {[] call timeSync};
 "messageSystem" addPublicVariableEventHandler {[] call serverMessage};
@@ -116,6 +134,7 @@ waituntil {!(IsNull (findDisplay 46))};
 [] execVM "client\functions\createVehicleStoreMarkers.sqf";
 [] execVM "client\functions\playerTags.sqf";
 [] execVM "client\functions\groupTags.sqf";
+if (A3W_showlocationmarker) then  {[] execVM "client\functions\createLocationMarkers.sqf";};
 [] call updateMissionsMarkers;
 [] call updateRadarMarkers;
 if (isNil "FZF_IC_INIT") then
@@ -140,3 +159,21 @@ if (_playerWasMoved == 0) then {
 } forEach playableUnits;
 
 [] execVM "addons\fpsFix\vehicleManager.sqf";
+
+while {isnil "A3W_baseSaving"} do
+{
+    sleep 10;
+};
+if (A3W_baseSaving != 0) then
+{
+    if (A3W_boxSaving == 0) then
+    {
+        player createDiaryRecord["infos", ["Base Saving", format ["Base parts will be relocked and saved for %1 day(s). Ammo boxes are not saved. Contents other than Food and Water (in the original containers) are not saved.", A3W_baseSaveTime]]];
+    }
+    else
+    {
+        player createDiaryRecord["infos", ["Base Saving", format ["Base parts will be relocked and saved for %1 day(s), Purchased Ammo Boxes for %2 day(s) and Captured boxes for 1 restart after being locked. Weapons and items are only saved in Ammo Boxes - Food and Water is saved in the original containers.", A3W_baseSaveTime, A3W_ammoboxSaveTime]]];
+    };
+};
+
+    

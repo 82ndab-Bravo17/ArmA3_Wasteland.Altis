@@ -5,7 +5,6 @@
 //@file Description: Deploy a Spawn Beacon
 //@file Argument: [player, player, _action, []] the standard "called by an action" values
 
-#include "mutex.sqf"
 #define ANIM "AinvPknlMstpSlayWrflDnon_medic"
 #define ERR_CANCELLED "Action Cancelled"
 #define ERR_IN_VEHICLE "Action Failed! You can't do this in a vehicle"
@@ -25,7 +24,7 @@ _hasFailed = {
     };
     [_failed, _text];
 };
-_success = [MF_ITEMS_SPAWN_BEACON_DURATION, ANIM, _hasFailed, []] call mf_util_playUntil;
+_success = [MF_ITEMS_SPAWN_BEACON_DURATION, ANIM, _hasFailed, []] call a3w_actions_start;
 
 if (_success) then {
     _uid = getPlayerUID player;
@@ -43,7 +42,7 @@ if (_success) then {
 	_beacon setVariable ['ownerName', name player, true];
 	_beacon setVariable ['ownerUID', _uid, true];
     _beacon setVariable ['packing', false, true];
-    _beacon setVariable ['groupOnly', false, true];    
+    _beacon setVariable ['groupOnly', (playerSide == resistance), true];    
     {
         if (_x getVariable ["ownerUID",""] == _uid) exitWith {
             pvar_spawn_beacons set [_forEachIndex, "removeMe"];
@@ -54,4 +53,5 @@ if (_success) then {
     publicVariable "pvar_spawn_beacons";
 	["You placed the Spawn Beacon successfully!", 5] call mf_notify_client;
 };
-_success;
+_success;
+

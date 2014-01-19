@@ -10,8 +10,38 @@ player createDiarySubject ["credits", "Credits"];
 
 player createDiaryRecord ["changelog",
 [
+"0.9f",
+"
+<br/> [Added] - Money missions
+<br/> [Added] - Sell Crate Items option at stores when moving crate
+<br/> [Changed] - Reorganized loots for crates and trucks
+<br/> [Fixed] - Broken Warchest menu
+<br/> [Fixed] - Spawn beacons not working for Independent groups
+<br/> [Fixed] - Player icons position inside buildings
+<br/> [Fixed] - MRAPs and quadbikes not spawning
+<br/> [Fixed] - Broken money rewards for territories
+"
+]];
+
+player createDiaryRecord ["changelog",
+[
+"0.9e",
+"
+<br/> [Added] - Territory system
+<br/> [Added] - Jumping option (step over while running)
+<br/> [Added] - New weapons from v1.04 update
+<br/> [Changed] - Water and food now use water bottles and baked beans
+<br/> [Fixed] - Store object purchases not operating as intended
+<br/> [Fixed] - Objects purchased from stores not saving properly
+<br/> [Fixed] - Minor server-side memory leak
+"
+]];
+
+player createDiaryRecord ["changelog",
+[
 "0.9d",
 "
+<br/> [Added] - Store object purchases
 <br/> [Changed] - New UI by KoS
 "
 ]];
@@ -57,11 +87,14 @@ player createDiaryRecord ["credits",
 <br/>	* MercyfulFate
 <br/>	* His_Shadow (KoS/KillonSight)
 <br/>	* Bewilderbeest (KoS/KillonSight)
+<br/>	* Torndeco
 <br/>	* Del1te (404Games)
 <br/>
 <br/><font size='16'>Other contributors:</font>
+<br/>	* 82ndab-Bravo17 (GitHub)
 <br/>	* afroVoodo (Armaholic)
 <br/>	* AWA (OpenDayZ)
+<br/>	* Das Attorney (Jump MF)
 <br/>	* Ed! (404Games forums)
 <br/>	* HatchetHarry (GitHub)
 <br/>	* Hub (TeamPlayerGaming)
@@ -70,6 +103,7 @@ player createDiaryRecord ["credits",
 <br/>	* Mainfrezzer (Magnon)
 <br/>	* meat147 (GitHub)
 <br/>	* Na-Palm (BIS forums)
+<br/>	* red281gt (GitHub)
 <br/>	* RockHound (BierAG)
 <br/>	* s3kShUn61 (GitHub)
 <br/>	* Sa-Matra (BIS forums)
