@@ -16,6 +16,7 @@ _leader = _group createUnit ["C_man_polo_1_F", [(_pos select 0) + 10, _pos selec
 removeAllAssignedItems _leader;
 _leader addUniform "U_B_CombatUniform_mcam";
 _leader addVest "V_PlateCarrier1_rgr";
+_leader addBackpack "B_AssaultPack_rgr";
 _leader addMagazine "30Rnd_556x45_Stanag";
 _leader addWeapon "arifle_TRG21_F";
 _leader addMagazine "30Rnd_556x45_Stanag";
