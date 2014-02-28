@@ -11,6 +11,7 @@ if ((call config_player_donations_enabled) == 1) then {
 	[_donation, _donation, "DonationMoney", "NUMBER"] call sendToServer;
 };
 
+[_UID, _UID, "Money", "NUMBER"] call sendToServer;
 // Player location + health
 [_UID, _UID, "Health", "NUMBER"] call sendToServer;
 [_UID, _UID, "Position", "ARRAY"] call sendToServer;
@@ -35,6 +36,7 @@ waitUntil {!isNil "backpackLoaded"};
 
 [_UID, _UID, "AssignedItems", "ARRAY"] call sendToServer;
 [_UID, _UID, "MagazinesWithAmmoCount", "ARRAY"] call sendToServer;
+[_UID, _UID, "MagazinesWithAmmoCount2", "ARRAY"] call sendToServer;
 
 //wait until everything has loaded in to add items
 
@@ -74,3 +76,4 @@ ppEffectDestroy BIS_fnc_feedback_fatigueBlur;
 ppEffectDestroy BIS_fnc_feedback_damageBlur;
 
 player globalchat "Player account loaded!";
+

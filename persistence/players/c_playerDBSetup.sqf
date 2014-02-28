@@ -22,6 +22,7 @@ applyPlayerDBValues =
 		//diag_log format["applyPlayerDBValues early termination with nil value for %1", _varName];
 		if(_varName == 'Position') then {positionLoaded = 1;};
 		if(_varName == 'DonationMoney') then {donationMoneyLoaded = 1;};
+		if(_varName == 'Money') then {moneyLoaded = 1;};
 		
 		if(_varName == 'PrimaryWeapon') then {primaryLoaded = 1;};
 		if(_varName == 'HandgunWeapon') then {handgunLoaded = 1;};
@@ -35,6 +36,8 @@ applyPlayerDBValues =
 	
 	if(_varName == 'DonationMoney') then {player setVariable["donationMoney",_varValue,true]; donationMoneyLoaded = 1;};
 
+	if(_varName == 'Money') then {player setVariable["cmoney",_varValue,true]; moneyLoaded = 1;};
+	
 	// Inventory item section. Use mf_inventory_all as set up by the mf_inv system
 	{
 		_itemID = _x select 0;
@@ -48,7 +51,7 @@ applyPlayerDBValues =
 
 	//if(_varName == 'Magazines') then {{player addMagazine _x;}foreach _varValue;};
 
-	if (_varName == 'MagazinesWithAmmoCount') then {
+	if (_varName == 'MagazinesWithAmmoCount' or _varName == 'MagazinesWithAmmoCount2') then {
 		{
 			_className = _x select 0; // eg. 30Rnd_65x39_caseless_mag
 			_ammoCount = _x select 1; // Magazine current ammo count

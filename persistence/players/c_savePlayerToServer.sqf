@@ -12,6 +12,8 @@ if(playerSetupComplete) then
 		[_uid, _uid, _keyName, _value] call fn_SaveToServer;
 	} forEach call mf_inventory_all;
 
+	[_uid, _uid, "Money", player getVariable ["cmoney", 0]] call fn_SaveToServer;
+	
 	[_uid, _uid, "Vest", vest player] call fn_SaveToServer;
 	[_uid, _uid, "Uniform", uniform player] call fn_SaveToServer;	
 	[_uid, _uid, "Backpack", backpack player] call fn_SaveToServer;
@@ -39,16 +41,26 @@ if(playerSetupComplete) then
 
 	[_uid, _uid, "Items", items player] call fn_SaveToServer;
 	[_uid, _uid, "AssignedItems", assignedItems player] call fn_SaveToServer;
-	
+	mag_count = 0;
 	magsWithAmmoCounts = [];
+	magsWithAmmoCounts2 = [];
 	{
 		_class = _x select 0;
 		_count = _x select 1;
 		_elem = [_class, _count];
-		magsWithAmmoCounts set [count magsWithAmmoCounts, _elem];
+		if (mag_count <= 12) then
+		{
+			magsWithAmmoCounts set [count magsWithAmmoCounts, _elem];
+		}
+		else
+		{
+			magsWithAmmoCounts2 set [count magsWithAmmoCounts2, _elem];
+		};
+		mag_count = mag_count + 1;
 	} forEach (magazinesAmmoFull player);
 
 	[_uid, _uid, "MagazinesWithAmmoCount", magsWithAmmoCounts] call fn_SaveToServer;
+	[_uid, _uid, "MagazinesWithAmmoCount2", magsWithAmmoCounts2] call fn_SaveToServer;
 	//[_uid, _uid, "Weapons", Weapons player] call fn_SaveToServer;
 	player globalChat "Player saved!";
 };

@@ -53,6 +53,8 @@ if (A3W_playerSaving == 1) then {
 
 	[] execVM "persistence\players\c_serverSaveRelay.sqf";
 	waitUntil {!isNil "fn_SaveToServer"};
+	[] execVM "persistence\players\c_serverDeleteRelay.sqf";
+	waitUntil {!isNil "fn_deleteFromServer"};
 	[] execVM "persistence\players\c_playerDBSetup.sqf";
 	waitUntil {!isNil "statFunctionsLoaded"};
 	

@@ -24,4 +24,8 @@ _cash setPos _pos;
 _cash setVariable ["cmoney", _money, true];
 _cash setVariable ["owner", "world", true];
 player setVariable ["cmoney", (player getVariable "cmoney") - _money, true];
+if (A3W_playerSaving == 1) then {
+	_uid = getPlayerUID player;
+	[_uid] call fn_deleteFromServer;
+};
 mutexScriptInProgress = false;

@@ -1,4 +1,4 @@
-private ["_saveToDB","_array","_varName","_varValue","_saveArray","_loadFromDB","_type","_loadArray"];
+private ["_saveToDB","_array","_varName","_varValue","_saveArray","_loadFromDB","_type","_loadArray", "_player"];
 
 _saveToDB =
 "
@@ -48,3 +48,17 @@ accountExists = compile _accountExists;
 	(_this select 1) spawn loadFromDB;
 };
 
+
+"accountToServerDelete" addPublicVariableEventHandler
+{
+	(_this select 1) spawn deleteFromDB;
+};
+
+_deleteFromDB =
+"
+	_array = _this;
+	_player = _array select 0;
+	(_player) call iniDB_delete;
+";
+
+deleteFromDB = compile _deleteFromDB;
