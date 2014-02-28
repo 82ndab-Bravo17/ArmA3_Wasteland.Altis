@@ -67,7 +67,7 @@ switch((_rand)) do
 };
 
 _fix = [_posRand select 0, _posRand select 1, _ZCoor];
-_treas0 = createVehicle ["Land_Money_F", _fix, [], 0, "CAN_COLLIDE"];
+_treas0 = createVehicle ["B_supplyCrate_F", _fix, [], 0, "CAN_COLLIDE"];
 _treas0 setPos _fix;
 _treas0 setVariable["cmoney",10000,true];
 _treas0 setVariable["owner","world",true];
