@@ -21,7 +21,7 @@ switch (_Objtype) do
         diag_log ("Created Water object");
 		_obj setVariable["R3F_LOG_disabled", false, true];
 	};
-	case "Land_Sacks_goods_F":
+	case "Land_BarrelTrash_grey_F":
 	{
 		_obj setVariable["food",40,true];
         diag_log ("Created Food object");

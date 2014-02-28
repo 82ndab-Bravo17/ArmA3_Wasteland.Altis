@@ -135,8 +135,8 @@ objectList =
 	"Land_Pipes_large_F",
 	"Land_RampConcrete_F",
 	"Land_RampConcreteHigh_F",
-	"Land_Sacks_goods_F",
-    "Land_Sacks_goods_F",
+	"Land_BarrelTrash_grey_F",
+    "Land_BarrelTrash_grey_F",
 	"Land_Shoot_House_Wall_F",
 	"Land_BarrelWater_F",
     "Land_BarrelWater_F"

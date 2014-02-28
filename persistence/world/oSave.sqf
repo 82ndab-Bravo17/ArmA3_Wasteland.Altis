@@ -60,7 +60,7 @@ while {true} do
 
 				switch (true) do
 				{
-					case (_object isKindOf "Land_Sacks_goods_F"):
+					case (_object isKindOf "Land_BarrelTrash_grey_F"):
 					{
 						_supplyleft = _object getVariable ["food", 20];
 					};

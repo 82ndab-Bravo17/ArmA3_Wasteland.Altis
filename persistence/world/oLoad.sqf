@@ -58,7 +58,7 @@ for "_i" from 0 to (_objectscount - 1) do
 		_obj setPosASL _pos;
 		_obj setVectorDirAndUp _dir;
 
-		if (_class == "Land_Sacks_goods_F") then 
+		if (_class == "Land_BarrelTrash_grey_F") then 
 		{
 			_obj setVariable["food",_supplyleft,true];
 		};
